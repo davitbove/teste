@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload de Imagem e Música</title>
+    <title>Imagem e Música</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,40 +18,12 @@
     </style>
 </head>
 <body>
-    <h2>Carregue uma Imagem e uma Música</h2>
-    <input type="file" id="imageInput" accept="image/*">
-    <input type="file" id="audioInput" accept="audio/*">
-    <br><br>
-    <img id="imagePreview" style="display:none;">
+    <h2>Imagem e Música Selecionadas</h2>
+    <img id="imagePreview" src="imagem.jpg" alt="Imagem Selecionada">
     <br>
-    <audio id="audioPlayer" controls style="display:none;"></audio>
-    
-    <script>
-        document.getElementById('imageInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const image = document.getElementById('imagePreview');
-                    image.src = e.target.result;
-                    image.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        
-        document.getElementById('audioInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const audio = document.getElementById('audioPlayer');
-                    audio.src = e.target.result;
-                    audio.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+    <audio id="audioPlayer" controls>
+        <source src="musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 </body>
 </html>
